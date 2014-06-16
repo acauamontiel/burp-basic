@@ -1,0 +1,24 @@
+{
+  "name": "burp-basic",
+  "version": "1.0.0",
+  "authors": [
+    "Acauã Montiel <contato@acauamontiel.com.br>"
+  ],
+  "description": "A simplified version of BURP Template",
+  "main": "gulpfile.js",
+  "keywords": [
+    "template"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/acauamontiel/burp-basic",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "mantis-js": "*"
+  }
+}
