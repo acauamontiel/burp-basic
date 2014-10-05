@@ -61,10 +61,12 @@ body {
 	height: 100%;
 }
 body {
+	display: none;
 	color: #eee;
 	background: #222 url("../img/backgrounds/bart.png") left bottom no-repeat;
 }
-body.loaded {
+body.ready {
+	display: block;
 	animation: slide 1s;
 }
 
