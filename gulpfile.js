@@ -1,6 +1,9 @@
 var gulp = require('gulp'),
-	jshint = require('gulp-jshint'),
+	amd = require('amd-optimize'),
+	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
+	jshint = require('gulp-jshint'),
+	stylish = require('jshint-stylish'),
 	prettify = require('gulp-prettify'),
 	htmlmin = require('gulp-htmlmin'),
 	prefixr = require('gulp-autoprefixer'),
@@ -12,16 +15,18 @@ var gulp = require('gulp'),
 
 function setPaths () {
 	path = {
-		src: './src/',
-		build: './build/',
-		dist: './dist/'
+		src: __dirname + '/src/',
+		build: __dirname + '/build/',
+		dist: __dirname + '/dist/'
 	};
 
 	path.dest = (dev) ? path.build : path.dist;
 
 	path.js = {
-		watch: path.src + 'js/*.js',
-		src: path.src + 'js/*.js',
+		watch: path.src + 'js/**/*.js',
+		src: path.src + 'js/**/*.js',
+		name: 'app',
+		out: 'app.js',
 		dest: path.dest + 'js/'
 	};
 
@@ -80,10 +85,14 @@ gulp.task('js', function () {
 	if (dev) {
 		gulp.src(path.js.src)
 			.pipe(jshint())
-			.pipe(jshint.reporter('default'))
+			.pipe(jshint.reporter(stylish))
+			.pipe(amd(path.js.name))
+			.pipe(concat(path.js.out))
 			.pipe(gulp.dest(path.js.dest));
 	} else {
 		gulp.src(path.js.src)
+			.pipe(amd(path.js.name))
+			.pipe(concat(path.js.out))
 			.pipe(uglify())
 			.pipe(gulp.dest(path.js.dest));
 	}
