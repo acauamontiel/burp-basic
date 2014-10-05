@@ -63,11 +63,17 @@ src/
 │   │   └── *.{jpg|png|svg}
 │   └── *.{jpg|png|svg}
 ├── js/
+│   ├── app/
+│   │   ├── main.js
+│   │   └── *.js
+│   ├── modules/
+│   │   └── *.js
 │   └── app.js
 ├── .htaccess
 ├── browserconfig.xml
 ├── favicon.ico
 └── humans.txt
+└── *.html
 .bowerrc
 .editorconfig
 .gitattributes
@@ -84,6 +90,6 @@ README.md
 License
 -------
 
-© 2014 Acauã Montiel
+© 2014 [Acauã Montiel](http://acauamontiel.com.br)
 
 [MIT License](http://acaua.mit-license.org/)
